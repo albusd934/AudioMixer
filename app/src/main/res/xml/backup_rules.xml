@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Backup user volume preferences -->
+    <include domain="sharedpref" path="volumes.xml"/>
+    <include domain="sharedpref" path="app_settings.xml"/>
+</full-backup-content>

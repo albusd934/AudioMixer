@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/surface"
+            app:navigationIcon="@drawable/ic_back"
+            app:titleTextColor="@color/on_surface" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- System Stream Volumes Card -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="System Stream Volumes"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary"
+                android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Music -->
+                    <include layout="@layout/item_stream_volume"
+                        android:id="@+id/streamMusic" />
+
+                    <!-- Ring -->
+                    <include layout="@layout/item_stream_volume"
+                        android:id="@+id/streamRing" />
+
+                    <!-- Notification -->
+                    <include layout="@layout/item_stream_volume"
+                        android:id="@+id/streamNotification" />
+
+                    <!-- Alarm -->
+                    <include layout="@layout/item_stream_volume"
+                        android:id="@+id/streamAlarm" />
+
+                    <!-- Voice Call -->
+                    <include layout="@layout/item_stream_volume"
+                        android:id="@+id/streamVoiceCall" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Direct slider references for SettingsActivity -->
+            <!-- These are defined below as separate named views -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎵 Media / Music"
+                android:textSize="14sp"
+                android:textColor="@color/on_surface"
+                android:layout_marginTop="8dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+                <com.google.android.material.slider.Slider android:id="@+id/sliderMusic"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:valueFrom="0" android:valueTo="15" android:stepSize="1"
+                    app:thumbColor="@color/primary" app:trackColorActive="@color/primary" app:trackColorInactive="@color/primary_container"/>
+                <TextView android:id="@+id/tvMusicPercent" android:layout_width="40dp"
+                    android:layout_height="wrap_content" android:gravity="center" android:textColor="@color/primary" android:text="100%"/>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🔔 Ring" android:textSize="14sp" android:textColor="@color/on_surface" android:layout_marginTop="8dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+                <com.google.android.material.slider.Slider android:id="@+id/sliderRing"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:valueFrom="0" android:valueTo="15" android:stepSize="1"
+                    app:thumbColor="@color/primary" app:trackColorActive="@color/primary" app:trackColorInactive="@color/primary_container"/>
+                <TextView android:id="@+id/tvRingPercent" android:layout_width="40dp"
+                    android:layout_height="wrap_content" android:gravity="center" android:textColor="@color/primary" android:text="100%"/>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🔕 Notification" android:textSize="14sp" android:textColor="@color/on_surface" android:layout_marginTop="8dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+                <com.google.android.material.slider.Slider android:id="@+id/sliderNotification"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:valueFrom="0" android:valueTo="15" android:stepSize="1"
+                    app:thumbColor="@color/primary" app:trackColorActive="@color/primary" app:trackColorInactive="@color/primary_container"/>
+                <TextView android:id="@+id/tvNotificationPercent" android:layout_width="40dp"
+                    android:layout_height="wrap_content" android:gravity="center" android:textColor="@color/primary" android:text="100%"/>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="⏰ Alarm" android:textSize="14sp" android:textColor="@color/on_surface" android:layout_marginTop="8dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+                <com.google.android.material.slider.Slider android:id="@+id/sliderAlarm"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:valueFrom="0" android:valueTo="15" android:stepSize="1"
+                    app:thumbColor="@color/primary" app:trackColorActive="@color/primary" app:trackColorInactive="@color/primary_container"/>
+                <TextView android:id="@+id/tvAlarmPercent" android:layout_width="40dp"
+                    android:layout_height="wrap_content" android:gravity="center" android:textColor="@color/primary" android:text="100%"/>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📞 Voice Call" android:textSize="14sp" android:textColor="@color/on_surface" android:layout_marginTop="8dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+                <com.google.android.material.slider.Slider android:id="@+id/sliderVoiceCall"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:valueFrom="0" android:valueTo="15" android:stepSize="1"
+                    app:thumbColor="@color/primary" app:trackColorActive="@color/primary" app:trackColorInactive="@color/primary_container"/>
+                <TextView android:id="@+id/tvVoiceCallPercent" android:layout_width="40dp"
+                    android:layout_height="wrap_content" android:gravity="center" android:textColor="@color/primary" android:text="100%"/>
+            </LinearLayout>
+
+            <!-- Permissions -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Permissions"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNotificationListener"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Manage Notification Listener Access" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAudioSettings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Open Sound Settings"
+                style="@style/Widget.Material3.Button.OutlinedButton" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
